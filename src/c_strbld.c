@@ -38,7 +38,7 @@ void Test(size_t num) {
     StringBuilder* sb = newStringBuilder();
     append(sb, "");
     size_t i = 0L;
-    printf("  C");
+    /*printf("  C");*/
 
     clock_t startTime = clock();
     
@@ -55,7 +55,12 @@ void Test(size_t num) {
 
 
 	size_t length = strlen(sb->str);
-    printf("  %d:%d:%d Iter %ld: Len %d\n", minutes, seconds, milliseconds, i-1, length);
+    /*printf("  %d:%d:%d Iter %ld: Len %d\n", minutes, seconds, milliseconds, i-1, length);*/
+    printf("\"C\"{\n");
+    printf("  \"time\": \"%d:%d:%d\",\n", minutes, seconds, milliseconds);
+    printf("  \"iteration\": %ld,\n", i-1);  // Iteration i-1
+    printf("  \"length\": %d\n", length);
+    printf("}\n");
 
     FILE* file = fopen("out/c_output.txt", "w");
     if (file != NULL) {
