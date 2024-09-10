@@ -56,13 +56,13 @@ void Test(size_t num) {
 
 	size_t length = strlen(sb->str);
     /*printf("  %d:%d:%d Iter %ld: Len %d\n", minutes, seconds, milliseconds, i-1, length);*/
-    printf("\"C\"{\n");
+    printf("\"C\":{\n");
     printf("  \"time\": \"%d:%d:%d\",\n", minutes, seconds, milliseconds);
     printf("  \"iteration\": %ld,\n", i-1);  // Iteration i-1
     printf("  \"length\": %d\n", length);
     printf("}\n");
 
-    FILE* file = fopen("out/c_output.txt", "w");
+    FILE* file = fopen("../out/c_output.txt", "w");
     if (file != NULL) {
         fputs(sb->str, file);
         fclose(file);
@@ -103,7 +103,7 @@ int main(int argc, char* argv[]) {
         printf("Usage: %s <num>\n", argv[0]);
         return 1;
     }
-
+	
     size_t num = atol(argv[1]);
     Test(num);
     return 0;
